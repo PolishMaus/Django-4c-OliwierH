@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="cia">
+    <label>Podaj Liczbę A</label><br>
+    <input type="text" id="licz_a"><br>
+    <label>Podaj Liczbę B</label><br>
+    <input type="text" id="licz_b"><br>
+    <label>Wybierz Działanie</label><br>
+    <input type="radio" name="dzial" id="dod">+
+    <input type="radio" name="dzial" id="ode">-
+    <input type="radio" name="dzial" id="mno">*
+    <input type="radio" name="dzial" id="dziel">:<br>
+    <button onclick="oblicz()">Oblicz</button><br>
+    <label>Wynik</label><br>
+    <p id="wynik"></p>
+    </div>
+</body>
+
+<script>
+    function oblicz(){
+
+        let a = parseFloat(document.getElementById("licz_a").value);
+        let b = parseFloat(document.getElementById("licz_b").value);
+        let dzial = document.querySelector('input[name="dzial"]:checked');
+
+        if (isNaN(a) || isNaN(b)) {
+            document.getElementById("wynik").innerHTML = "Wprowadź poprawne liczby";
+            return;
+        }
+        if (a === 0 && dzial.id === "dziel") {
+            document.getElementById("wynik").innerHTML = "Nie można dzielić przez zero";
+            return;
+        }
+        if (b === 0 && dzial.id === "dziel") {
+            document.getElementById("wynik").innerHTML = "Nie można dzielić przez zero";
+            return;
+        }
+
+        let wynik;
+
+        switch(dzial.id) {
+            case 'dod':
+                wynik = a + b;
+                break;
+            case 'ode':
+                wynik = a - b;
+                break;
+            case 'mno':
+                wynik = a * b;
+                break;
+            case 'dziel':
+                wynik = a / b;
+                break;
+            default:
+                wynik = "Wybierz działanie";
+        }
+    
+        document.getElementById("wynik").innerHTML = wynik.toFixed(2);
+    }
+</script>
+</html>

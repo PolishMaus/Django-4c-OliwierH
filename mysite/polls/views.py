@@ -13,3 +13,8 @@ def counter(request):
     template = loader.get_template('counter.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+def oli(request):
+    template = loader.get_template('oli.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
