@@ -1,0 +1,11 @@
+.cia{
+    margin: 50px;
+    padding: 50px;
+    background-color: rgb(229, 243, 255);
+}
+
+body{
+    justify-content: center;
+    display: flex;
+    align-self:center;
+}
